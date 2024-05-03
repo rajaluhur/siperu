@@ -10,6 +10,7 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons';
 import Icon2 from 'react-native-vector-icons/FontAwesome';
 import Icon3 from 'react-native-vector-icons/MaterialIcons';
+import LinearGradient from 'react-native-linear-gradient';
 
 const Register = ({navigation}) => {
   const [username, setUsername] = useState('');
@@ -31,7 +32,11 @@ const Register = ({navigation}) => {
   };
 
   return (
-    <View style={styles.container}>
+    <LinearGradient
+      colors={['#0F2BAC', '#22006C']}
+      start={{x: 0, y: 0}}
+      end={{x: 1, y: 1}}
+      style={styles.container}>
       <Image
         source={require('../assets/images/MASKOT3.png')}
         style={styles.logo}
@@ -85,7 +90,7 @@ const Register = ({navigation}) => {
         onPress={() => navigation.navigate('Home')}>
         <Icon3 name="multitrack-audio" size={24} color="#000" />
       </TouchableOpacity>
-    </View>
+    </LinearGradient>
   );
 };
 
@@ -94,7 +99,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'blue',
   },
   logo: {
     width: '60%',

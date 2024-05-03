@@ -7,6 +7,7 @@ import {
   StyleSheet,
   Image,
 } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const Login = ({navigation}) => {
@@ -29,7 +30,11 @@ const Login = ({navigation}) => {
   };
 
   return (
-    <View style={styles.container}>
+    <LinearGradient
+      colors={['#0F2BAC', '#22006C']}
+      start={{x: 0, y: 0}}
+      end={{x: 1, y: 1}}
+      style={styles.container}>
       <Image
         source={require('../assets/images/siperu.png')}
         style={styles.logo}
@@ -70,7 +75,9 @@ const Login = ({navigation}) => {
           </TouchableOpacity>
         </View>
 
-        <TouchableOpacity style={styles.button} onPress={handleLogin}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate('HomeTabs')}>
           <Text style={styles.buttonText}>Masuk</Text>
         </TouchableOpacity>
       </View>
@@ -86,7 +93,7 @@ const Login = ({navigation}) => {
         onPress={() => navigation.navigate('Register')}>
         <Icon name="multitrack-audio" size={24} color="#000" />
       </TouchableOpacity>
-    </View>
+    </LinearGradient>
   );
 };
 
@@ -95,7 +102,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'blue',
   },
   logo: {
     width: '50%',
@@ -131,7 +137,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     width: '100%',
     alignItems: 'center',
-    gap: 10,
+    justifyContent: 'space-between',
   },
   checkboxContainer: {
     flexDirection: 'row',
